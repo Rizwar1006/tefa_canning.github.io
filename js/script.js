@@ -1,32 +1,54 @@
-/* Navigasi antar halaman (hash) */
+/* Navigasi antar halaman */
 const V=['home','organisasi','eduwisata','kemitraan','formulir-permintaan','kontak'];
+let selectedVisitDate='';
 function go(){
-  const [h,queryString='']=(location.hash||'#home').slice(1).split('?');
-  const v=h==='kalender-eduwisata'?'eduwisata':V.includes(h)?h:'home';
-  V.forEach(x=>document.getElementById(x).hidden=x!==v);
-  document.getElementById('hero').classList.toggle('in',!document.body.classList.contains('cv'));
-  document.querySelectorAll('[data-v]').forEach(a=>a.classList.toggle('on',a.dataset.v===v));
-  if(h==='kalender-eduwisata') document.getElementById('kalender-eduwisata').scrollIntoView();
-  else if(h==='formulir-permintaan'){
-    const query=new URLSearchParams(queryString);
+  const page=V.includes(document.body.dataset.page)?document.body.dataset.page:'home';
+  const hero=document.getElementById('hero');
+  if(page==='home'&&!location.hash) document.body.classList.add('cv');
+  else document.body.classList.remove('cv');
+  if(hero) hero.classList.toggle('in',!document.body.classList.contains('cv'));
+  document.querySelectorAll('[data-v]').forEach(a=>a.classList.toggle('on',a.dataset.v===page));
+  if(location.hash==='#kalender-eduwisata'){
+    const calendar=document.getElementById('kalender-eduwisata');
+    if(calendar) calendar.scrollIntoView();
+  }
+  if(page==='formulir-permintaan'){
+    const query=new URLSearchParams(location.search);
     const topic=query.get('topik');
     topicSelect.value=['edu-wisata','kemitraan-produk','lainnya'].includes(topic)?topic:'';
     const date=query.get('tanggal');
-    visitDate.value=date&&date>=toDateValue(today)?date:'';
-    if(visitDate.value){
-      const [year,month]=visitDate.value.split('-').map(Number);
+    selectedVisitDate=date&&date>=toDateValue(today)?date:'';
+    visitDate.value=selectedVisitDate;
+    if(selectedVisitDate){
+      const [year,month]=selectedVisitDate.split('-').map(Number);
       calendarMonth=new Date(year,month-1,1);
     }
     updateTopicFields();
     renderCalendar();
-    document.getElementById('formulir-permintaan').scrollIntoView();
   }
-  else scrollTo(0,0);
 }
-if(!location.hash)document.body.classList.add('cv');
-addEventListener('hashchange',()=>{document.body.classList.remove('cv');go()});
+addEventListener('hashchange',go);
+const menuToggle=document.getElementById('menu-toggle');
+const siteNav=document.querySelector('nav');
+function setMenuOpen(open){
+  if(!menuToggle||!siteNav) return;
+  menuToggle.setAttribute('aria-expanded',String(open));
+  menuToggle.setAttribute('aria-label',open?'Tutup menu':'Buka menu');
+  siteNav.classList.toggle('menu-open',open);
+}
+if(menuToggle&&siteNav){
+  menuToggle.addEventListener('click',()=>setMenuOpen(menuToggle.getAttribute('aria-expanded')!=='true'));
+  siteNav.querySelectorAll('.nav-menu a').forEach(link=>link.addEventListener('click',()=>setMenuOpen(false)));
+  addEventListener('resize',()=>{if(innerWidth>820)setMenuOpen(false)});
+  document.addEventListener('keydown',event=>{
+    if(event.key==='Escape'&&menuToggle.getAttribute('aria-expanded')==='true'){
+      setMenuOpen(false);
+      menuToggle.focus();
+    }
+  });
+}
 const masukBtn = document.getElementById('masuk');
-if(masukBtn) {
+if(masukBtn&&document.body.dataset.page==='home') {
   masukBtn.onclick=e=>{e.preventDefault();document.body.classList.remove('cv');location.hash='#home';go()};
 }
 
@@ -110,9 +132,10 @@ function renderCalendar(){
     button.textContent=day;
     button.setAttribute('aria-label',new Intl.DateTimeFormat('id-ID',{dateStyle:'full'}).format(date));
     button.disabled=date<today;
-    if(value===visitDate.value) button.classList.add('selected');
+    if(value===selectedVisitDate) button.classList.add('selected');
     button.addEventListener('click',()=>{
-      visitDate.value=value;
+      selectedVisitDate=value;
+      if(visitDate) visitDate.value=value;
       renderCalendar();
     });
     calendarDays.append(button);
@@ -125,16 +148,16 @@ function updateCalendarSummary(){
   const status=document.getElementById('selected-date-status');
   const link=document.getElementById('edu-form-link');
   if(!label||!status||!link) return;
-  if(visitDate.value){
-    const [year,month,day]=visitDate.value.split('-').map(Number);
+  if(selectedVisitDate){
+    const [year,month,day]=selectedVisitDate.split('-').map(Number);
     const selected=new Date(year,month-1,day);
     label.textContent=new Intl.DateTimeFormat('id-ID',{dateStyle:'full'}).format(selected);
     status.textContent='Tanggal dipilih · menunggu pengajuan';
-    link.href=`#formulir-permintaan?topik=edu-wisata&tanggal=${visitDate.value}`;
+    link.href=`formulir-permintaan.html?topik=edu-wisata&tanggal=${selectedVisitDate}`;
   }else{
     label.textContent='Pilih tanggal yang diinginkan';
     status.textContent='Tanggal pilihan akan ditampilkan di sini.';
-    link.href='#formulir-permintaan?topik=edu-wisata';
+    link.href='formulir-permintaan.html?topik=edu-wisata';
   }
 }
 
@@ -155,6 +178,7 @@ if(visitDate){
   visitDate.min=toDateValue(today);
   visitDate.addEventListener('change',()=>{
     if(!visitDate.value) return;
+    selectedVisitDate=visitDate.value;
     const [year,month]=visitDate.value.split('-').map(Number);
     calendarMonth=new Date(year,month-1,1);
     renderCalendar();
@@ -176,6 +200,7 @@ if(form) form.addEventListener('submit',event=>{
   const topic=topicSelect.options[topicSelect.selectedIndex].text;
   alert(`Terima kasih. Formulir ${topic} berhasil divalidasi (simulasi; belum terhubung ke layanan pengiriman).`);
   form.reset();
+  selectedVisitDate='';
   updateTopicFields();
   renderCalendar();
 });

@@ -16,7 +16,7 @@
     <h1>TEFA CANNING POLIJE</h1>
     <div class="hr">
       <p>Teaching Factory (Tefa) adalah konsep pengajaran berbasis standar industri dalam lingkungan nyata. Di Politeknik Negeri Jember (Polije), terdapat Tefa Canning yang memproduksi pangan kaleng, salah satunya ikan sarden.</p>
-      <a class="btn" href="#home" id="masuk">Masuk ↗</a>
+      <a class="btn" href="index.html#home" id="masuk">Masuk ↗</a>
     </div>
   </div>
   <div class="hf"><span>Politeknik Negeri Jember · Sejak 2018</span><span>Pembelajaran · Produksi · Penelitian · Kemitraan</span></div>
@@ -24,14 +24,19 @@
 
 <nav>
   <div class="w">
-    <a href="#home"><b>TEFA Canning Polije</b><small>Politeknik Negeri Jember</small></a>
+    <a href="index.html"><b>TEFA Canning Polije</b><small>Politeknik Negeri Jember</small></a>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Buka menu">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+    <div class="nav-menu" id="primary-navigation">
     <ul>
-      <li><a data-v="home" href="#home">Home</a></li>
-      <li><a data-v="organisasi" href="#organisasi">Organisasi</a></li>
-      <li><a data-v="eduwisata" href="#eduwisata">Edu-wisata</a></li>
-      <li><a data-v="kemitraan" href="#kemitraan">Kemitraan</a></li>
+      <li><a data-v="home" href="index.html#hero">Home</a></li>
+      <li><a data-v="organisasi" href="organisasi.html">Organisasi</a></li>
+      <li><a data-v="eduwisata" href="eduwisata.html">Edu-wisata</a></li>
+      <li><a data-v="kemitraan" href="kemitraan.html">Kemitraan</a></li>
     </ul>
-    <a class="btn d" href="#formulir-permintaan?topik=edu-wisata">Rencanakan kunjungan ↗</a>
+    <a class="btn d" href="formulir-permintaan.html?topik=edu-wisata">Rencanakan kunjungan ↗</a>
+    </div>
   </div>
 </nav>
 
@@ -78,7 +83,7 @@
 
   <div class="bl"><div class="w g2" style="padding:36px 28px;align-items:center">
     <div><h3 style="font-size:26px">Lihat lebih dekat, belajar secara langsung.</h3><p style="font-size:14px;color:var(--g)">Jadwalkan edu wisata untuk melihat proses produksi sarden kaleng.</p></div>
-    <div style="text-align:right"><a class="btn" href="#eduwisata">Lihat edu-wisata ↗</a></div>
+    <div style="text-align:right"><a class="btn" href="eduwisata.html">Lihat edu-wisata ↗</a></div>
   </div></div>
 </section>
 
@@ -116,7 +121,7 @@
       <div class="lb">Home / Edu-wisata</div>
       <h2>Kami menerima kunjungan belajar.</h2>
       <p>Jelajahi proses pengolahan hasil perikanan bersama TEFA Canning Polije. Kenali perjalanan bahan baku hingga menjadi produk dalam kaleng melalui pengalaman belajar langsung di lingkungan produksi nyata.</p>
-      <a class="btn d" href="#kalender-eduwisata">Lihat jadwal kunjungan ↗</a>
+      <a class="btn d" href="eduwisata.html#kalender-eduwisata">Lihat jadwal kunjungan ↗</a>
     </div>
     <img src="img/kegiatan-praktik-pengolahan-dan-sterilisasi-produk.jpeg" alt="Kegiatan praktik pengolahan dan sterilisasi produk di TEFA Canning Polije">
   </div>
@@ -161,7 +166,7 @@
           <p id="selected-date-status">Tanggal pilihan akan ditampilkan di sini.</p>
           <ul><li>Durasi: dikonfirmasi pengelola</li><li>Peserta: sesuai kapasitas area</li><li>Pendamping: staf TEFA Canning Polije</li></ul>
           <p>Siapkan nama instansi, jumlah peserta, dan tujuan kunjungan.</p>
-          <a class="btn" id="edu-form-link" href="#formulir-permintaan?topik=edu-wisata">Ajukan reservasi ↗</a>
+          <a class="btn" id="edu-form-link" href="formulir-permintaan.html?topik=edu-wisata">Ajukan reservasi ↗</a>
           <p class="calendar-note">Pengajuan belum menjadi konfirmasi. Jadwal menunggu persetujuan pengelola.</p>
         </aside>
       </div>
@@ -176,7 +181,7 @@
       <div class="lb">Home / Kemitraan</div>
       <h2>Kolaborasi hari ini. Nilai tambah untuk esok.</h2>
       <p>TEFA Canning Polije membuka ruang kerja sama untuk menghubungkan pendidikan, pengolahan perikanan, dan kebutuhan mitra. Mari temukan bentuk kolaborasi yang dapat tumbuh bersama.</p>
-      <a class="btn d" href="#formulir-permintaan?topik=kemitraan-produk">Diskusikan kemitraan ↗</a>
+      <a class="btn d" href="formulir-permintaan.html?topik=kemitraan-produk">Diskusikan kemitraan ↗</a>
     </div>
     <div class="bl card fl"><small class="lb">ALUR KOLABORASI</small><div>Kebutuhan mitra<small>Bahan baku · produk · pengembangan</small></div>↓<div class="dkb">TEFA Canning Polije<small>Pembelajaran · proses · pendampingan</small></div>↓<p>Solusi yang dikembangkan bersama</p></div>
   </div>
@@ -210,7 +215,7 @@
     <img src="img/kegiatan-kolaborasi-dan-praktik.jpeg" alt="Kegiatan kolaborasi dan praktik di TEFA Canning Polije">
     <div><div class="lb">Mulai percakapan</div><h2>Ingin mengajukan kemitraan?</h2>
     <p>Sampaikan profil instansi, kebutuhan, serta gambaran kerja sama. Tim pengelola akan menindaklanjuti permohonan Anda.</p>
-    <a class="btn" href="#formulir-permintaan?topik=kemitraan-produk">Hubungi pengelola ↗</a></div>
+    <a class="btn" href="formulir-permintaan.html?topik=kemitraan-produk">Hubungi pengelola ↗</a></div>
   </div></div>
 </section>
 
@@ -271,7 +276,7 @@
         <p><b>Jam layanan</b><br>Senin – Jumat, 08.00 – 16.00 WIB</p>
         <p>Informasi kontak resmi mengikuti konfirmasi pengelola.</p>
         <p>Ingin berkunjung bersama rombongan?</p>
-        <a href="#eduwisata">Lihat halaman edu-wisata ↗</a>
+        <a href="eduwisata.html">Lihat halaman edu-wisata ↗</a>
       </aside>
     </div>
   </div>
@@ -282,7 +287,7 @@
   <div class="w sec" style="padding-bottom:28px"><div class="lb">Hubungi Kami</div><h2>Mari mulai percakapan.</h2>
   <p style="margin-top:14px;color:var(--g);max-width:640px">Sampaikan pertanyaan atau permintaan kerja sama. Tim pengelola TEFA Canning Polije siap menindaklanjuti.</p></div>
   <div class="w g2" style="grid-template-columns:1.7fr 1fr;padding-bottom:72px">
-    <div class="card"><h3>Ajukan edu wisata atau kemitraan.</h3><p style="margin:12px 0 20px;color:var(--g)">Gunakan formulir terpadu untuk mengirim rencana kunjungan, kemitraan produk, atau pertanyaan lainnya.</p><a class="btn" href="#formulir-permintaan?topik=lainnya">Buka formulir ↗</a></div>
+    <div class="card"><h3>Ajukan edu wisata atau kemitraan.</h3><p style="margin:12px 0 20px;color:var(--g)">Gunakan formulir terpadu untuk mengirim rencana kunjungan, kemitraan produk, atau pertanyaan lainnya.</p><a class="btn" href="formulir-permintaan.html?topik=lainnya">Buka formulir ↗</a></div>
     <aside class="sd"><small>TEFA CANNING POLIJE</small><h3>Terhubung untuk tumbuh bersama.</h3>
       <p><small>PENGELOLA</small>Politeknik Negeri Jember</p>
       <p><small>ALAMAT</small>Jl. Mastrip, Krajan Timur, Sumbersari, Jember, Jawa Timur</p>
@@ -297,8 +302,8 @@
 <footer>
   <div class="w g4">
     <div><h4>TEFA Canning Polije</h4><p style="margin:8px 0 12px">Teaching Factory pengolahan pangan kaleng, Politeknik Negeri Jember.</p><small>Sejak 2018</small></div>
-    <div><h5>JELAJAH</h5><ul><li><a href="#home">Home</a></li><li><a href="#organisasi">Organisasi</a></li><li><a href="#eduwisata">Edu-wisata</a></li><li><a href="#kemitraan">Kemitraan</a></li></ul></div>
-    <div><h5>HUBUNGI KAMI</h5><ul><li><a href="#formulir-permintaan?topik=lainnya">Formulir kontak</a></li><li>Alamat dan kontak mengikuti konfirmasi resmi</li></ul></div>
+    <div><h5>JELAJAH</h5><ul><li><a href="index.html#home">Home</a></li><li><a href="organisasi.html">Organisasi</a></li><li><a href="eduwisata.html">Edu-wisata</a></li><li><a href="kemitraan.html">Kemitraan</a></li></ul></div>
+    <div><h5>HUBUNGI KAMI</h5><ul><li><a href="formulir-permintaan.html?topik=lainnya">Formulir kontak</a></li><li><a href="kontak.html">Kontak</a></li><li>Alamat dan kontak mengikuti konfirmasi resmi</li></ul></div>
     <div>
       <h5>LOKASI</h5>
       <iframe

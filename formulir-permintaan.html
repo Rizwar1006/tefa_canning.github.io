@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TEFA Canning Polije</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="formulir-permintaan">
+
+<header class="hero" id="hero">
+  <div class="polije"><i class="logo"></i>POLITEKNIK NEGERI JEMBER</div>
+  <div class="hb">
+    <div class="lb">Profil Perusahaan</div>
+    <h1>TEFA CANNING POLIJE</h1>
+    <div class="hr">
+      <p>Teaching Factory (Tefa) adalah konsep pengajaran berbasis standar industri dalam lingkungan nyata. Di Politeknik Negeri Jember (Polije), terdapat Tefa Canning yang memproduksi pangan kaleng, salah satunya ikan sarden.</p>
+      <a class="btn" href="index.html#home" id="masuk">Masuk ↗</a>
+    </div>
+  </div>
+  <div class="hf"><span>Politeknik Negeri Jember · Sejak 2018</span><span>Pembelajaran · Produksi · Penelitian · Kemitraan</span></div>
+</header>
+
+<nav>
+  <div class="w">
+    <a href="index.html"><b>TEFA Canning Polije</b><small>Politeknik Negeri Jember</small></a>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Buka menu">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+    <div class="nav-menu" id="primary-navigation">
+    <ul>
+      <li><a data-v="home" href="index.html#hero">Home</a></li>
+      <li><a data-v="organisasi" href="organisasi.html">Organisasi</a></li>
+      <li><a data-v="eduwisata" href="eduwisata.html">Edu-wisata</a></li>
+      <li><a data-v="kemitraan" href="kemitraan.html">Kemitraan</a></li>
+    </ul>
+    <a class="btn d" href="formulir-permintaan.html?topik=edu-wisata">Rencanakan kunjungan ↗</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="view" id="formulir-permintaan">
+  <div class="w sec form-page">
+    <div class="lb">Home / Formulir / Hubungi pengelola</div>
+    <h2>Mari mulai percakapan.</h2>
+    <p class="form-intro">Sampaikan pertanyaan atau rencana kerja sama Anda. Tim pengelola TEFA Canning Polije siap membantu koordinasi selanjutnya.</p>
+    <div class="g2 form-layout">
+      <form class="card request-form" id="request-form">
+        <h3>Ceritakan kebutuhan Anda.</h3>
+        <p class="form-hint">Tanda * menunjukkan informasi yang perlu diisi.</p>
+        <div class="f2">
+          <label>Nama lengkap *<input name="nama" autocomplete="name" required placeholder="Nama Anda"></label>
+          <label>Instansi / organisasi *<input name="instansi" autocomplete="organization" required placeholder="Nama instansi atau organisasi"></label>
+          <label>Email *<input name="email" type="email" autocomplete="email" required placeholder="nama@instansi.ac.id"></label>
+          <label>Nomor WhatsApp *<input name="telepon" type="tel" autocomplete="tel" required placeholder="08xx xxx xxxx"></label>
+        </div>
+        <label>Topik pembicaraan *
+          <select id="request-topic" name="topik" required>
+            <option value="">Pilih topik pembicaraan</option>
+            <option value="edu-wisata">Edu wisata</option>
+            <option value="kemitraan-produk">Kemitraan produk</option>
+            <option value="lainnya">Lainnya</option>
+          </select>
+        </label>
+        <div id="edu-fields">
+          <h3>Rencana kunjungan</h3>
+          <div class="f2">
+            <label>Tanggal kunjungan *<input id="visit-date" name="tanggal" type="date" data-topic-required required></label>
+            <label>Waktu yang diharapkan<input name="waktu" type="time" data-topic-required required></label>
+            <label>Jumlah peserta *<input name="peserta" type="number" min="1" data-topic-required required placeholder="Masukkan jumlah peserta"></label>
+            <label>Kategori pengunjung *<select name="kategori" data-topic-required required><option value="">Pelajar / mahasiswa / umum</option><option>Pelajar</option><option>Mahasiswa</option><option>Umum</option><option>Lainnya</option></select></label>
+          </div>
+          <label>Tujuan kunjungan *<textarea name="tujuan" data-topic-required required placeholder="Ceritakan tujuan dan hal yang ingin dipelajari."></textarea></label>
+          <label>Catatan tambahan<textarea name="catatan-kunjungan" placeholder="Kebutuhan pendampingan atau informasi lain untuk pengelola."></textarea></label>
+        </div>
+        <div id="partnership-fields">
+          <h3>Rencana kemitraan</h3>
+          <label>Kebutuhan / bidang kerja sama *<input name="produk" data-topic-required required placeholder="Contoh: pengembangan produk pangan kaleng"></label>
+          <label>Gambaran kerja sama *<textarea name="rencana-kerja-sama" data-topic-required required placeholder="Ceritakan kebutuhan, tujuan, dan bentuk kolaborasi yang diharapkan."></textarea></label>
+          <label>Informasi tambahan<textarea name="catatan-kemitraan" placeholder="Profil singkat atau hal lain yang perlu diketahui pengelola."></textarea></label>
+        </div>
+        <div id="other-fields">
+          <h3>Informasi lainnya</h3>
+          <label>Pesan *<textarea name="pesan-lainnya" data-topic-required required placeholder="Ceritakan kebutuhan, tujuan, atau pertanyaan Anda."></textarea></label>
+        </div>
+        <label class="ck"><input name="persetujuan" type="checkbox" required>Saya menyetujui data ini digunakan untuk keperluan komunikasi dan koordinasi dengan pengelola.</label>
+        <button class="btn" type="submit">Kirim pesan ↗</button>
+        <p class="form-hint">Pengajuan belum menjadi konfirmasi. Jadwal dan tindak lanjut menunggu konfirmasi pengelola.</p>
+      </form>
+      <aside class="sd form-contact">
+        <small>TEFA CANNING POLIJE</small><h3>Terhubung untuk tumbuh bersama.</h3>
+        <p>Politeknik Negeri Jember</p>
+        <p><b>Kontak resmi</b><br>[Nomor kontak resmi]<br>[Alamat email resmi]</p>
+        <p><b>Lokasi</b><br>Politeknik Negeri Jember<br>Jl. Mastrip, Jember</p>
+        <p><b>Jam layanan</b><br>Senin – Jumat, 08.00 – 16.00 WIB</p>
+        <p>Informasi kontak resmi mengikuti konfirmasi pengelola.</p>
+        <p>Ingin berkunjung bersama rombongan?</p>
+        <a href="eduwisata.html">Lihat halaman edu-wisata ↗</a>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="w g4">
+    <div><h4>TEFA Canning Polije</h4><p style="margin:8px 0 12px">Teaching Factory pengolahan pangan kaleng, Politeknik Negeri Jember.</p><small>Sejak 2018</small></div>
+    <div><h5>JELAJAH</h5><ul><li><a href="index.html#home">Home</a></li><li><a href="organisasi.html">Organisasi</a></li><li><a href="eduwisata.html">Edu-wisata</a></li><li><a href="kemitraan.html">Kemitraan</a></li></ul></div>
+    <div><h5>HUBUNGI KAMI</h5><ul><li><a href="formulir-permintaan.html?topik=lainnya">Formulir kontak</a></li><li><a href="kontak.html">Kontak</a></li><li>Alamat dan kontak mengikuti konfirmasi resmi</li></ul></div>
+    <div>
+      <h5>LOKASI</h5>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d508.10623049738757!2d113.72643841205621!3d-8.15563138317925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695f2c7074ec7%3A0x40c147ea5d0ce7c8!2sUnit%20Pengalengan%20Ikan%20Politeknik%20Negeri%20Jember!5e1!3m2!1sen!2sid!4v1795435590840!5m2!1sen!2sid"
+        width="100%"
+        height="120"
+        style="border:0"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Lokasi TEFA Canning Polije">
+      </iframe>
+    </div>
+  </div>
+  <div class="w cp"><span>© 2026 TEFA Canning Polije</span><span>Politeknik Negeri Jember</span></div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

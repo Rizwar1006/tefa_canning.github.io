@@ -1,4 +1,4 @@
-/* Dasar halaman dan komponen umum (index.html) */
+/* Dasar halaman dan komponen umum */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -215,7 +215,7 @@ img {
   display: none;
 }
 
-/* Navigasi dan tampilan halaman (nav; hash, data-v, dan body.cv dari script.js) */
+/* Navigasi dan tampilan halaman (nav, data-v, dan body.cv dari script.js) */
 body.cv nav,
 body.cv main,
 body.cv footer {
@@ -231,10 +231,11 @@ nav {
 }
 
 nav .w {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1.23fr;
   align-items: center;
-  justify-content: space-between;
   height: 60px;
+  position: relative;
 }
 
 nav b {
@@ -251,6 +252,39 @@ nav ul {
   display: flex;
   gap: 28px;
   font-size: 13px;
+}
+
+.nav-menu {
+  display: contents;
+}
+
+nav ul {
+  justify-self: center;
+}
+
+nav .nav-menu > .btn {
+  justify-self: end;
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid var(--l);
+  border-radius: 3px;
+  background: transparent;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--i);
 }
 
 nav li a {
@@ -566,8 +600,13 @@ footer iframe {
   font-size: 12px;
 }
 
-/* Responsif untuk tata letak, navigasi, dan kartu */
+/* Responsif untuk tata letak, navigasi, dan kartu jika dimepetin framenya*/
 @media (max-width: 820px) {
+  nav .w {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .g2,
   .g3,
   .g4,
@@ -583,8 +622,37 @@ footer iframe {
     align-items: flex-start;
   }
 
-  nav ul {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
     display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    padding: 16px 28px 20px;
+    background: var(--c);
+    border-bottom: 1px solid var(--l);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  nav.menu-open .nav-menu {
+    display: flex;
+  }
+
+  nav .nav-menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  nav .nav-menu .btn {
+    display: block;
+    text-align: center;
   }
 
   .st {
