@@ -11,6 +11,7 @@
   --b: #e8edf0;
   --y: #e8b85a;
   --l: #dcdcd4;
+  --w: #fff;
 }
 
 body {
@@ -78,7 +79,7 @@ img {
 .btn {
   display: inline-block;
   background: var(--y);
-  color: var(--i);
+  color: var(--w);
   font: 600 14px Inter;
   padding: 12px 22px;
   border-radius: 3px;
@@ -87,8 +88,8 @@ img {
 }
 
 .btn.d {
-  background: #4a4d4f;
-  color: #fff;
+  background: var(--y);
+  color: var(--w);
 }
 
 .lk {
@@ -172,8 +173,8 @@ img {
 }
 
 .logo {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: radial-gradient(#7bd3c4, #1c8f9a);
   border: 2px solid #fff;
